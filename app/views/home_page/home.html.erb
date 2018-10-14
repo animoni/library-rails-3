@@ -1,9 +1,7 @@
+ 
+
 
 <div class="wrapper">
-    
-
-
-       
  <div class = "container">
   <div class = "row">
     <div class = "col-lg-4">
@@ -16,16 +14,16 @@
         <ul class="list-unstyled components">
             <p>Dummy Heading</p>
             <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Book</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                        <a href="#">Home 1</a>
+                      <%= link_to "List", books_path %>
                     </li>
                     <li>
-                        <a href="#">Home 2</a>
+                      <%= link_to "Add", new_book_path %>
                     </li>
                     <li>
-                        <a href="#">Home 3</a>
+                      <%= link_to "Show", '#' %>
                     </li>
                 </ul>
             </li>
@@ -55,7 +53,7 @@
         </ul>
     </nav>
     </div>
-    
+
     <div class = "col-lg-8">
       <p>
         Matera is a city on a rocky outcrop in the region of Basilicata, in southern Italy.
