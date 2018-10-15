@@ -19,7 +19,13 @@
         <a href="#about">About</a>
       </div>
     </div>
-    
+    <div class="container">
+    <% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>">
+            <div class = "flash"> <%= value %> </div> 
+      </div>
+    <% end %>
+    </div>
     <div class="container">
       <%= yield %>
     </div>
