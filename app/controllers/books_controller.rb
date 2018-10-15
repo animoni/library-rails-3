@@ -23,11 +23,11 @@ class BooksController < ApplicationController
 
   def edit
     #binding.pry
-    @book = Book.find_by(params[:id])
+    @book = Book.find_by(id: params[:id])
   end
 
   def update
-    @book = Book.find(params[:id])
+    @book = Book.find_by(id: params[:id])
     if @book.update_attributes(book_params)
       redirect_to books_path
     else
@@ -36,11 +36,15 @@ class BooksController < ApplicationController
   end
 
   def destroy
+    #binding.pry
+    @book = Book.find(params[:id])
+    @book.delete
+    redirect_to books_path
   end
   
   private
   
   def book_params
-    params.require(:book).permit(:title, :description, author_id: :nil)
+    params.require(:book).permit(:title, :description)
   end
 end
