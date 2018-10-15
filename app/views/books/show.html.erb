@@ -9,5 +9,6 @@
   <div class="card-footer bg-transparent border-success">
     <%=link_to "Home", root_path%>
     <%=link_to "Edit", edit_book_path(@book.id)%>
+    <%=link_to "Delete", book_path(@book.id), method: :delete%>
   </div>
 </div>
