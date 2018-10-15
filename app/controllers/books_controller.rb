@@ -4,7 +4,6 @@ class BooksController < ApplicationController
   end
 
   def show
-  # binding.pry
     @book = Book.find_by(id: params[:id])
   end
 
@@ -16,13 +15,14 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     if @book.save
       redirect_to book_path(@book.id)
+      flash[:success] = "New book added to list."
     else
+      flash[:danger] = "Something is not quite right."
       render new_book_path
     end
   end
 
   def edit
-    #binding.pry
     @book = Book.find_by(id: params[:id])
   end
 
@@ -30,16 +30,18 @@ class BooksController < ApplicationController
     @book = Book.find_by(id: params[:id])
     if @book.update_attributes(book_params)
       redirect_to books_path
+      flash[:notice] = "The edit was success."
     else
+      flash[:notice] = "The edit was not really successful."
       render edit
     end
   end
 
   def destroy
-    #binding.pry
     @book = Book.find(params[:id])
     @book.delete
     redirect_to books_path
+    flash[:danger] = "OH WHY?!"
   end
   
   private
